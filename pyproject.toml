@@ -10,6 +10,7 @@ python = "^3.10"
 jupyter = "^1.0.0"
 
 black = {extras = ["jupyter"], version = "^25.1.0"}
+requests = "^2.32.3"
 [poetry.group.dev.dependencies]
 black = "^21.0"
 flake8 = "^3.9.0"
@@ -19,6 +20,11 @@ black = "^25.1.0"
 flake8 = "^7.1.2"
 pre-commit = "^4.1.0"
 
+types-requests = "^2.32.0.20250306"
+nbqa = "^1.9.1"
+isort = "^6.0.1"
+mypy = "^1.15.0"
+pylint = "^3.3.5"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

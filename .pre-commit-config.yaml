@@ -1,15 +1,23 @@
 repos:
+-   repo: local
+    hooks:
+    -   id: print-python-env
+        name: Print Python Environment
+        entry: python -c 'import sys; print("-"*50); print(sys.executable)'
+        language: python
+        stages: [pre-commit]
+
 -   repo: https://github.com/psf/black
     rev: 23.10.1
     hooks:
     -   id: black
         language_version: python3
-        args: [--line-length=88]
-        stages: [commit, push]
+        args: [--line-length=120]
+        stages: [pre-commit, pre-push]
     -   id: black-jupyter
         language_version: python3
-        args: [--line-length=88]
-        stages: [commit, push]
+        args: [--line-length=120]
+        stages: [pre-commit, pre-push]
 
 -   repo: https://github.com/pycqa/flake8
     rev: 6.1.0
@@ -17,8 +25,39 @@ repos:
     -   id: flake8
         additional_dependencies: [flake8-docstrings]
         args: [
-            '--max-line-length=88',
+            '--max-line-length=120',
             '--extend-ignore=E203',  # Whitespace before ':' (conflicts with Black)
             '--per-file-ignores=__init__.py:F401'  # Ignore unused imports in __init__.py
         ]
-        stages: [commit, push]
+        stages: [pre-commit, pre-push]
+
+-   repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.7.0
+    hooks:
+
+    -   id: nbqa-flake8
+        args: [
+            '--ignore=D100,E402',
+            '--max-line-length=120',
+            '--extend-ignore=E203',  # Same settings as regular flake8
+            '--per-file-ignores=__init__.py:F401'
+        ]
+        additional_dependencies: [flake8-docstrings]
+        stages: [pre-commit, pre-push]
+
+    -   id: nbqa-isort
+        args: [--profile=black]
+        stages: [pre-commit, pre-push]
+
+
+
+    -   id: nbqa-mypy
+        args: [
+            '--ignore-missing-imports',
+            '--follow-imports=silent'
+        ]
+        stages: [pre-commit, pre-push]
+
+    -   id: nbqa-pyupgrade
+        args: [--py38-plus]  # Set to your minimum Python version
+        stages: [pre-commit, pre-push]
