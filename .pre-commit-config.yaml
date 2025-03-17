@@ -5,9 +5,11 @@ repos:
     -   id: black
         language_version: python3
         args: [--line-length=88]
+        stages: [commit, push]
     -   id: black-jupyter
         language_version: python3
         args: [--line-length=88]
+        stages: [commit, push]
 
 -   repo: https://github.com/pycqa/flake8
     rev: 6.1.0
@@ -19,3 +21,4 @@ repos:
             '--extend-ignore=E203',  # Whitespace before ':' (conflicts with Black)
             '--per-file-ignores=__init__.py:F401'  # Ignore unused imports in __init__.py
         ]
+        stages: [commit, push]
