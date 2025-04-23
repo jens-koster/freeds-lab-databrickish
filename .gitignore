@@ -175,3 +175,4 @@ cython_debug/
 output/
 .DS_Store
 notebooks/tmp.gz
+.venv/
