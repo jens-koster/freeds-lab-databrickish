@@ -20,11 +20,13 @@ echo "Using Python version: $PYTHON_VERSION"
 
 # Install dependencies
 echo "Installing requirements..."
-pip install --upgrade pip
-pip install -r requirements.txt
-
+poetry install
 # Install Jupyter kernel with full version in display name
 echo "Installing Jupyter kernel..."
-python -m ipykernel install --user --name=.venv --display-name "PIPE DREAMS $PYTHON_VERSION"
+kernel="PIPE DREAMS $PYTHON_VERSION"
+python -m ipykernel install --user --name=.venv --display-name "$kernel"
 
-echo "✅ Setup complete with Python $PYTHON_VERSION"
+echo ""
+echo "✅ '.venv' created with Python: $PYTHON_VERSION"
+echo "✅ Notebook kernel installed as : $kernel"
+2
