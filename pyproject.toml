@@ -13,6 +13,8 @@ requests = "^2.32.3"
 papermill = "^2.6.0"
 
 boto3 = "^1.37.26"
+pyspark = "^3.5.5"
+delta-spark = "3.3.0"
 [poetry.group.dev.dependencies]
 black = "^21.0"
 flake8 = "^3.9.0"
@@ -27,6 +29,7 @@ nbqa = "^1.9.1"
 isort = "^6.0.1"
 mypy = "^1.15.0"
 pylint = "^3.3.5"
+nbstripout = "^0.8.1"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

@@ -1,4 +1,8 @@
 repos:
+-   repo: meta
+    hooks:
+    -   id: identity
+
 -   repo: local
     hooks:
     -   id: print-python-env
@@ -20,7 +24,7 @@ repos:
         stages: [pre-commit, pre-push]
 
 -   repo: https://github.com/pycqa/flake8
-    rev: 7.1.2
+    rev: 7.2.0
     hooks:
     -   id: flake8
         additional_dependencies: [flake8-docstrings]
@@ -68,3 +72,10 @@ repos:
     -   id: nbqa-pyupgrade
         args: [--py38-plus]  # Set to your minimum Python version
         stages: [pre-commit, pre-push]
+
+
+
+-   repo: https://github.com/kynan/nbstripout
+    rev: 0.8.1  # Or pin a specific commit SHA
+    hooks:
+      - id: nbstripout
