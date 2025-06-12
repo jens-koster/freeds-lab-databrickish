@@ -73,7 +73,9 @@ repos:
         args: [--py38-plus]  # Set to your minimum Python version
         stages: [pre-commit, pre-push]
 
-
+    -   id: nbqa-black
+        args: [--line-length=120]  # Optional: match your Black config
+        stages: [pre-commit, pre-push]
 
 -   repo: https://github.com/kynan/nbstripout
     rev: 0.8.1  # Or pin a specific commit SHA
