@@ -1,5 +1,5 @@
 # pipe-dreams
-The tfds data pipeline notebooks.
+The freeds data pipeline notebooks.
 This is also the lab for "doing things by the book". (Admittedly I don't keep this standard up on most of my projects.)
 
 * Poetry is used to manage the project
