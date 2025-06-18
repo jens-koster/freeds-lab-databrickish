@@ -1,11 +1,8 @@
-# pipe-dreams
-The freeds data pipeline notebooks.
-This is also the lab for "doing things by the book". (Admittedly I don't keep this standard up on most of my projects.)
+# Databrick-ish Lab
+Moving things around a bit... more docs to come.
 
 * Poetry is used to manage the project
 * pre-commit will clean, lint, check and fix everything; committing stuff to git takes a while.
-
-
 
 ## pre-commit
     # worth trying to solve problems:
